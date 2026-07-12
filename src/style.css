@@ -27,9 +27,11 @@
 }
 
 * { box-sizing: border-box; }
-html, body { margin: 0; background: var(--bg); color: var(--fg); font-family: 'Geist', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+html { overflow-x: hidden; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: 'Geist', system-ui, sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; width: 100%; }
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
+img { max-width: 100%; height: auto; }
 
 /* ── buttons ── */
 .btn {
@@ -55,6 +57,7 @@ a:hover { text-decoration: underline; }
 }
 .brand { display: flex; align-items: center; gap: 10px; color: var(--fg); }
 .brand:hover { text-decoration: none; }
+.brand-logo { height: 26px; width: auto; }
 .brand-mark {
   width: 26px; height: 26px; border-radius: 7px; background: var(--accent);
   display: flex; align-items: center; justify-content: center;
@@ -62,7 +65,7 @@ a:hover { text-decoration: underline; }
 .brand-mark::after { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent-fg); }
 .brand-name { font: 600 17px 'Geist', sans-serif; letter-spacing: -.01em; }
 .brand-name span { color: var(--fg-muted); font-weight: 400; }
-.nav-right { display: flex; align-items: center; gap: 16px; }
+.nav-right { display: flex; align-items: center; gap: 10px; min-width: 0; }
 .nav-links { display: flex; gap: 26px; margin-right: 4px; }
 .nav-links a { font: 500 14px 'Geist', sans-serif; color: var(--fg-muted); }
 .nav-links a:hover { color: var(--fg); text-decoration: none; }
@@ -101,7 +104,7 @@ a:hover { text-decoration: underline; }
 }
 .hero-caption {
   font: 400 13px 'Geist', sans-serif; color: var(--fg-muted); max-width: 840px;
-  line-height: 1.5; text-align: left; width: 100%;
+  line-height: 1.5; text-align: left; width: 100%; word-wrap: break-word;
 }
 .hero-caption-credit { font-weight: 600; }
 .record-types { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: 26px; }
@@ -120,11 +123,13 @@ a:hover { text-decoration: underline; }
 .article-body {
   max-width: 720px; margin: 0 auto;
   display: flex; flex-direction: column; gap: 0;
+  min-width: 0;
 }
 .article-body p {
   font: 400 16.5px/1.7 'Geist', sans-serif; color: var(--fg);
   margin: 0; padding: 18px 24px;
   background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+  word-wrap: break-word; overflow-wrap: break-word; min-width: 0;
 }
 .article-body p + p { margin-top: 12px; }
 .article-body p:first-child {
@@ -160,6 +165,7 @@ a:hover { text-decoration: underline; }
 /* ── footer ── */
 .footer { padding: 36px 56px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
 .footer-brand { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--fg-muted); }
+.footer-logo { height: 18px; width: auto; }
 .footer-brand .brand-mark { width: 22px; height: 22px; border-radius: 6px; }
 .footer-brand .brand-mark::after { width: 7px; height: 7px; }
 .footer-links { display: flex; gap: 24px; }
@@ -167,9 +173,33 @@ a:hover { text-decoration: underline; }
 
 /* ── responsive ── */
 @media (max-width: 960px) {
-  .nav, .hero, .features, .blog, .footer { padding-left: 24px; padding-right: 24px; }
+  .nav { padding: 14px 20px; }
+  .hero { padding: 56px 20px 48px; }
+  .features { padding: 40px 20px; }
+  .blog { padding: 40px 20px; }
+  .footer { padding: 28px 20px; flex-direction: column; gap: 16px; text-align: center; }
   .section-inner { padding-left: 0; padding-right: 0; }
-  .hero h1 { font-size: 40px; }
+  .hero h1 { font-size: 36px; }
+  .hero .sub { font-size: 15px; }
   .blog-grid { grid-template-columns: 1fr; }
   .nav-links { display: none; }
+  .hero-caption { font-size: 12px; }
+  .article-body p { padding: 14px 16px; font-size: 15px; }
+  .blog-head { flex-direction: column; gap: 8px; }
+}
+@media (max-width: 480px) {
+  .nav { padding: 12px 14px; gap: 8px; }
+  .hero { padding: 40px 14px 36px; gap: 16px; }
+  .hero h1 { font-size: 28px; }
+  .hero .sub { font-size: 14px; }
+  .hero-actions { flex-direction: column; width: 100%; }
+  .hero-actions .btn { width: 100%; }
+  .features { padding: 32px 14px; }
+  .blog { padding: 32px 14px; }
+  .footer { padding: 24px 14px; }
+  .btn-sm { padding: 8px 14px; font-size: 13px; }
+  .chip { font-size: 11px; padding: 3px 8px; }
+  .article-body p { padding: 12px 14px; font-size: 14px; line-height: 1.6; }
+  .section-head h2 { font-size: 24px; }
+  .blog-head h2 { font-size: 22px; }
 }
