@@ -15,8 +15,8 @@
   <nav class="nav-right">
     <div class="nav-links"><a href="/#article">Article</a><a href="/#related">Related</a></div>
     <div style="display:flex;gap:10px;align-items:center">
-      <button class="btn btn-secondary btn-sm">Sign In</button>
-      <button class="btn btn-primary btn-sm">Subscribe</button>
+      <button class="btn btn-secondary btn-sm" onclick="signIn()">Sign In</button>
+      <button class="btn btn-primary btn-sm" onclick="openSubscribe()">Subscribe</button>
     </div>
   </nav>
 </header>
@@ -25,11 +25,11 @@
   <h1>Taiwan test-fires rockets in China's direction from US-supplied mobile launching system</h1>
   <p class="sub">By <b>Associated Press</b> · Published June 10, 2026</p>
   <div class="hero-actions">
-    <button class="btn btn-primary">Share Article</button>
+    <button class="btn btn-primary" onclick="shareArticle(this)">Share Article</button>
     <a class="btn btn-secondary" href="#article">Read Full Story</a>
   </div>
-  <img class="hero-image" src="https://media.cnn.com/api/v1/images/stellar/prod/ap2606100345564.jpg?c=16x9&q=w_800,c_fill" alt="HIMARS rocket launch" onerror="this.style.display='none'" />
-  <div class="hero-caption">A rocket is launched from a High Mobility Artillery Rocket System (HIMARS) during a military live-fire shooting training in Taichung City, Taiwan. · <span class="hero-caption-credit">Chiang Ying-ying/AP</span></div>
+  <img class="hero-image" src="https://i0.wp.com/www.zona-militar.com/wp-content/uploads/2026/01/HIMARS-TAIWAN.jpg?fit=2048%2C1365&ssl=1" alt="HIMARS rocket launch" />
+  <div class="hero-caption">A rocket is launched from a High Mobility Artillery Rocket System (HIMARS) during a military live-fire exercise in Taiwan. · <span class="hero-caption-credit">Zona Militar</span></div>
   <div class="record-types">
     <div class="label">Topics</div>
     <div class="chip-row">
@@ -66,8 +66,24 @@
 </section>
 <footer class="footer">
   <div class="footer-brand"><img class="footer-logo" src="/localnode-logo.png" alt="localnode.app" /> News article clone built with Vite.</div>
-  <div class="footer-links"><a href="/">Home</a><a href="#">Source</a><a href="#">CNN</a></div>
+  <div class="footer-links"><a href="/">Home</a><a href="https://www.cnn.com" target="_blank" rel="noopener">CNN Source</a><a href="https://github.com/uchochi/Nnn" target="_blank" rel="noopener">GitHub</a></div>
 </footer>
-<script type="module" src="/src/main.js"></script>
+<div class="modal-overlay" id="subModal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal">
+    <button class="modal-close" onclick="document.getElementById('subModal').classList.remove('open')">&times;</button>
+    <h3>Subscribe to our newsletter</h3>
+    <p>Get the latest stories delivered to your inbox.</p>
+    <form id="subForm" onsubmit="handleSubscribe(event)">
+      <input type="email" id="subEmail" placeholder="you@example.com" required />
+      <button type="submit" class="btn btn-primary" id="subBtn">Subscribe</button>
+    </form>
+    <div id="subSuccess" style="display:none;text-align:center;padding:20px 0">
+      <div style="font-size:2rem;margin-bottom:8px">&#10003;</div>
+      <p style="font-weight:600">You're subscribed!</p>
+      <p style="opacity:.6;font-size:.85rem">We'll send updates to <span id="subEmailDisplay"></span></p>
+    </div>
+  </div>
+</div>
+<script src="/main.js"></script>
 </body>
 </html>

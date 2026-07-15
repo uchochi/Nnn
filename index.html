@@ -22,8 +22,8 @@
       <a href="#related">Related</a>
     </div>
     <div style="display:flex;gap:10px;align-items:center">
-      <button class="btn btn-secondary btn-sm" onclick="alert('Sign in functionality coming soon!')">Sign In</button>
-      <button class="btn btn-primary btn-sm" onclick="document.getElementById('subModal').classList.add('open')">Subscribe</button>
+      <button class="btn btn-secondary btn-sm" onclick="signIn()">Sign In</button>
+      <button class="btn btn-primary btn-sm" onclick="openSubscribe()">Subscribe</button>
     </div>
   </nav>
 </header>
@@ -52,7 +52,7 @@
   <h1>US and Nigerian forces kill senior ISIS commander, Trump says</h1>
   <p class="sub">By <b>Laura Sharman, CNN</b> · Published May 16, 2026, 12:14 AM ET · Updated 4:46 PM ET</p>
   <div class="hero-actions">
-    <button class="btn btn-primary" onclick="navigator.clipboard.writeText(window.location.href).then(()=>this.textContent='Link Copied!').catch(()=>alert('URL: '+window.location.href))">Share Article</button>
+    <button class="btn btn-primary" onclick="shareArticle(this)">Share Article</button>
     <a class="btn btn-secondary" href="#article">Read Full Story</a>
   </div>
   <img class="hero-image" src="https://media.cnn.com/api/v1/images/stellar/prod/ap26135830745701.jpg?c=16x9&q=w_800,c_fill" alt="Nigerian and US forces joint operation" />
@@ -221,6 +221,6 @@
   </div>
 </footer>
 
-<script type="module" src="/src/main.js"></script>
+<script src="/main.js"></script>
 </body>
 </html>
