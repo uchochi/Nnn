@@ -13,7 +13,7 @@
 
 <!-- ── NAV ── -->
 <header class="nav">
-  <a class="brand" href="#">
+  <a class="brand" href="/">
     <img class="brand-logo" src="/localnode-logo.png" alt="localnode.app" />
   </a>
   <nav class="nav-right">
@@ -23,8 +23,8 @@
     </div>
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"></button>
     <div style="display:flex;gap:10px;align-items:center">
-      <button class="btn btn-secondary btn-sm">Sign In</button>
-      <button class="btn btn-primary btn-sm">Subscribe</button>
+      <button class="btn btn-secondary btn-sm" onclick="alert('Sign in functionality coming soon!')">Sign In</button>
+      <button class="btn btn-primary btn-sm" onclick="alert('Subscription functionality coming soon!')">Subscribe</button>
     </div>
   </nav>
 </header>
@@ -35,7 +35,7 @@
   <h1>US and Nigerian forces kill senior ISIS commander, Trump says</h1>
   <p class="sub">By <b>Laura Sharman, CNN</b> · Published May 16, 2026, 12:14 AM ET · Updated 4:46 PM ET</p>
   <div class="hero-actions">
-    <button class="btn btn-primary">Share Article</button>
+    <button class="btn btn-primary" onclick="navigator.clipboard.writeText(window.location.href).then(()=>this.textContent='Link Copied!').catch(()=>alert('URL: '+window.location.href))">Share Article</button>
     <a class="btn btn-secondary" href="#article">Read Full Story</a>
   </div>
   <img class="hero-image" src="https://media.cnn.com/api/v1/images/stellar/prod/ap26135830745701.jpg?c=16x9&q=w_800,c_fill" alt="Nigerian and US forces joint operation" />
@@ -126,66 +126,65 @@
       <h2>Related Coverage</h2>
       <p>More on this developing story and regional security.</p>
     </div>
-    <a class="view-all" href="#">See all →</a>
   </div>
   <div class="blog-grid">
-    <a class="post-card" href="#">
+    <a class="post-card" href="/iran-strait-hormuz.html">
       <div class="post-thumb" style="background:oklch(60% .22 258)"></div>
       <div class="post-body">
         <div class="post-meta">
           <span class="post-tag">MIDDLE EAST</span>
-          <span class="post-date">May 16</span>
+          <span class="post-date">Apr 22</span>
         </div>
-        <h3>Iran's IRGC claims it has seized a 'suspicious vessel' in the Strait of Hormuz</h3>
-        <p>Iran's Revolutionary Guard says it intercepted a vessel it describes as suspicious in the strategic waterway.</p>
+        <h3>Iran's Revolutionary Guards seize ships in Strait of Hormuz</h3>
+        <p>Global oil prices surge as Iran's IRGC seizes container ships near the strategic waterway.</p>
         <span class="read-more">Read post →</span>
       </div>
     </a>
-    <a class="post-card" href="#">
+    <a class="post-card" href="/uk-economy.html">
       <div class="post-thumb" style="background:oklch(62% .18 295)"></div>
       <div class="post-body">
         <div class="post-meta">
           <span class="post-tag">EUROPE</span>
-          <span class="post-date">May 15</span>
+          <span class="post-date">Apr 22</span>
         </div>
-        <h3>UK Prime Minister Starmer reshuffles cabinet amid economic challenges</h3>
-        <p>The British prime minister announced a cabinet reshuffle as his government faces mounting economic pressures.</p>
+        <h3>UK inflation surges as energy prices climb amid Middle East tensions</h3>
+        <p>UK consumer prices rose 3.5% last month, the sharpest increase in over three years.</p>
         <span class="read-more">Read post →</span>
       </div>
     </a>
-    <a class="post-card" href="#">
+    <a class="post-card" href="/taiwan-himars.html">
       <div class="post-thumb" style="background:oklch(62% .19 148)"></div>
       <div class="post-body">
         <div class="post-meta">
           <span class="post-tag">ASIA</span>
-          <span class="post-date">May 15</span>
+          <span class="post-date">Jun 10</span>
         </div>
-        <h3>South Korea's acting president warns of economic headwinds</h3>
-        <p>Acting President Han Duck-soo cautioned about slowing growth and global trade uncertainties.</p>
+        <h3>Taiwan test-fires rockets in China's direction from US-supplied HIMARS</h3>
+        <p>Taiwan's military fired rockets into the Taiwan Strait using US-supplied mobile launchers.</p>
         <span class="read-more">Read post →</span>
       </div>
     </a>
-    <a class="post-card" href="#">
+    <a class="post-card" href="/south-africa-migrants.html">
       <div class="post-thumb" style="background:oklch(68% .17 65)"></div>
       <div class="post-body">
         <div class="post-meta">
           <span class="post-tag">AFRICA</span>
-          <span class="post-date">May 14</span>
+          <span class="post-date">Jun 29</span>
         </div>
-        <h3>What we know about the latest developments in Sudan's civil war</h3>
-        <p>Fighting continues between the Sudanese Armed Forces and the Rapid Support Forces with humanitarian crisis deepening.</p>
+        <h3>'Leave or return in a coffin': The threat driving migrants out of South Africa</h3>
+        <p>Anti-migrant rhetoric and violence surge across South African neighborhoods.</p>
         <span class="read-more">Read post →</span>
       </div>
     </a>
-    <a class="post-card" href="#">
+    <a class="post-card" href="/taiwan-china-threat.html">
       <div class="post-thumb" style="background:oklch(60% .22 258)"></div>
       <div class="post-body">
         <div class="post-meta">
-          <span class="post-tag">EUROPE</span>
-          <span class="post-date">May 14</span>
+          <span class="post-tag">ASIA</span>
+          <span class="post-date">Mar 19</span>
         </div>
-        <h3>EU proposes new sanctions package targeting Russian energy sector</h3>
-        <p>The European Union unveiled a fresh round of sanctions aimed at curbing Russia's energy revenues.</p>
+        <h3>The US is re-evaluating the threat of Chinese military action in Taiwan</h3>
+        <p>US intelligence says Beijing prefers unification without force, but preparations continue.</p>
         <span class="read-more">Read post →</span>
       </div>
     </a>
@@ -200,9 +199,8 @@
     News article clone built with Vite.
   </div>
   <div class="footer-links">
-    <a href="#">Source</a>
-    <a href="#">CNN</a>
-    <a href="#">GitHub</a>
+    <a href="https://www.cnn.com" target="_blank" rel="noopener">CNN Source</a>
+    <a href="https://github.com/uchochi/Nnn" target="_blank" rel="noopener">GitHub</a>
   </div>
 </footer>
 
