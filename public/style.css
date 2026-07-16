@@ -220,9 +220,18 @@ img { max-width: 100%; height: auto; }
 .ad-box {
   width: 100%; background: #0d1117; border: 1px solid #30363d;
   border-radius: 10px; overflow: hidden; position: relative;
-  display: flex; flex-direction: column; transition: background-color .2s;
+  display: flex; flex-direction: column; transition: background-color .2s, transform .3s, box-shadow .3s;
+  animation: adPulse 3s ease-in-out infinite;
 }
-.ad-box:hover { background: #161b22; }
+.ad-box:hover { background: #161b22; transform: translateY(-3px); box-shadow: 0 8px 24px rgba(63,185,80,.15); }
+@keyframes adPulse {
+  0%, 100% { border-color: #30363d; }
+  50% { border-color: #238636; }
+}
+@keyframes adShine {
+  0% { left: -100%; }
+  100% { left: 200%; }
+}
 .ad-box-badge {
   position: absolute; top: 8px; left: 8px;
   background: rgba(0,0,0,.6); color: #e4e6eb;
@@ -242,11 +251,16 @@ img { max-width: 100%; height: auto; }
 .ad-box-pay { font: 700 15px 'Geist', sans-serif; color: #3fb950; margin: 4px 0; }
 .ad-box-tagline { font: 400 12px 'Geist', sans-serif; color: #8b949e; line-height: 1.4; margin: 0 0 8px; }
 .ad-box-cta {
-  display: block; width: 100%; text-align: center;
+  display: block; width: 100%; text-align: center; position: relative; overflow: hidden;
   background: linear-gradient(135deg, #238636, #2ea043);
   color: #fff; font: 600 12px 'Geist', sans-serif;
   padding: 10px 16px; border-radius: 6px; letter-spacing: .3px;
   transition: all .2s;
+}
+.ad-box-cta::after {
+  content: ""; position: absolute; top: 0; left: -100%; width: 60%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.25), transparent);
+  animation: adShine 2.5s ease-in-out infinite;
 }
 .ad-box:hover .ad-box-cta { background: linear-gradient(135deg, #2ea043, #3fb950); transform: translateY(-1px); }
 
